@@ -34,6 +34,7 @@ RUN LIBUV_VERSION=1.4.2 && \
     sh autogen.sh && ./configure && make && make install && \
     rm -rf /usr/local/src/libuv-$LIBUV_VERSION && \
     ldconfig
+RUN yum clean all
 
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
