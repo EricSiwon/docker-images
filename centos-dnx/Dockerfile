@@ -8,6 +8,8 @@ RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E03
 RUN yum install -y yum-utils
 RUN yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
 
+RUN yum -y install mono-devel ca-certificates-mono fsharp mono-vbnc nuget
+
 ## This installs the DNX environment
 
 ENV DNX_VERSION 1.0.0-beta6
@@ -34,7 +36,9 @@ RUN LIBUV_VERSION=1.4.2 && \
     sh autogen.sh && ./configure && make && make install && \
     rm -rf /usr/local/src/libuv-$LIBUV_VERSION && \
     ldconfig
-RUN yum clean all
+RUN yum -y autoremove && \
+    yum clean all && \
+    rpm --rebuilddb
 
 ENV PATH $PATH:$DNX_USER_HOME/runtimes/default/bin
 
