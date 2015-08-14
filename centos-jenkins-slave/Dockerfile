@@ -3,7 +3,8 @@ FROM wholroyd/centos:latest
 MAINTAINER William Holroyd <wholroyd@gmail.com>
 
 RUN yum -y install openssh-server && \
-    yum -y install java-1.7.0-openjdk  
+    yum -y install java-1.7.0-openjdk && \
+    yum -y install git
   
 RUN echo "root:password" | chpasswd  
 RUN useradd jenkins  
