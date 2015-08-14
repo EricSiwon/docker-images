@@ -10,8 +10,7 @@ RUN useradd jenkins
 RUN echo "jenkins:jenkins" | chpasswd  
   
 RUN mkdir -p /var/run/sshd  
-RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''  
-RUN ssh-keygen -t ecdas -f /etc/ssh/ssh_host_ecdsa_key -N ''
+RUN ssh-keygen -A
 RUN sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd  
    
 EXPOSE 22  
