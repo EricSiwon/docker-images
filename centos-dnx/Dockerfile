@@ -30,13 +30,11 @@ RUN LIBUV_VERSION=1.4.1 && \
     ldconfig
     
 ## This installs the DNX environment
+
 RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.sh | DNX_USER_HOME=$DNX_USER_HOME DNX_BRANCH=v$DNX_VERSION sh
 RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh && \
     dnvm install $DNX_VERSION -a default && \
     dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default"
-
-# Define working directory.
-WORKDIR /data
 
 # Define default command.
 CMD ["bash"]
