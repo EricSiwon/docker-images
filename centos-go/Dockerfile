@@ -3,7 +3,7 @@ FROM wholroyd/centos:latest
 MAINTAINER William Holroyd <wholroyd@gmail.com>
 
 RUN yum install -y curl build-essential ca-certificates git mercurial bzr
-RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.2.2.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
+RUN mkdir /goroot && curl https://storage.googleapis.com/golang/go1.5.linux-amd64.tar.gz | tar xvzf - -C /goroot --strip-components=1
 RUN mkdir /gopath
 
 ENV GOROOT /goroot
