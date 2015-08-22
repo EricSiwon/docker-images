@@ -17,6 +17,9 @@ RUN yum install -y yum-utils
 RUN yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
 RUN yum -y install mono-devel ca-certificates-mono fsharp mono-vbnc nuget unzip
 
+# Make Mono trust SSL certificates
+RUN mozroots --import --sync
+
 ## Install libuv for Kestrel from source code
 
 RUN yum -y install \
