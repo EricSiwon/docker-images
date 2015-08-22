@@ -1,4 +1,4 @@
-FROM wholroyd/centos:latest
+FROM wholroyd/centos-nodejs:latest
 
 MAINTAINER William Holroyd <wholroyd@gmail.com>
 
