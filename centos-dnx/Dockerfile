@@ -36,5 +36,7 @@ RUN bash -c "source $DNX_USER_HOME/dnvm/dnvm.sh && \
     dnvm install $DNX_VERSION -a default && \
     dnvm alias default | xargs -i ln -s $DNX_USER_HOME/runtimes/{} $DNX_USER_HOME/runtimes/default"
 
+WORKDIR /data
+
 # Define default command.
 CMD ["bash"]
