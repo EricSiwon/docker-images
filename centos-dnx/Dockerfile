@@ -27,7 +27,11 @@ RUN LIBUV_VERSION=1.4.1 && \
     cd /usr/local/src/libuv-$LIBUV_VERSION && \
     sh autogen.sh && ./configure && make && make install && \
     rm -rf /usr/local/src/libuv-$LIBUV_VERSION && \
-    ldconfig
+    ldconfig && \
+    ln -s /usr/local/lib/libuv.so /usr/lib && \
+    ln -s /usr/local/lib/libuv.so.1 /usr/lib && \
+    ln -s /usr/local/lib/libuv.so /usr/lib64 && \
+    ln -s /usr/local/lib/libuv.so.1 /usr/lib64
     
 ## This installs the DNX environment
 
