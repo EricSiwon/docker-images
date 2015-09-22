@@ -3,7 +3,8 @@ FROM wholroyd/centos:latest
 MAINTAINER William Holroyd <wholroyd@gmail.com>
 
 RUN yum -y install openssh-server && \
-    yum -y install git
+    yum -y install git && \
+    yum -y install docker
   
 RUN echo "root:password" | chpasswd  
 RUN useradd jenkins  
